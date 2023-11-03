@@ -1,16 +1,40 @@
-const chalk = require('chalk')
-const validator = require('validator')
+const yargs = require('yargs')
 
-const getNotes = require('./notes.js')
-const msg = getNotes()
 
-const command = process.argv[2]
-if (command == 'add'){
-    console.log('Add Notes')
-}else if (command == 'remove'){
-    console.log('Remove Notes')
-}
+// create add command
+yargs.command({
+    command: 'add',
+    describe: 'Add a new note',
+    handler: function () {
+        console.log('adding a new note!')
+    }
+})
 
-console.log(msg)
-console.log (validator.isEmail('yb@gmaol.com'))
-console.log(chalk.red.inverse.bold('error'))
+// create remove command
+yargs.command({
+    command: 'remove',
+    describe: 'remove a note',
+    handler: function () {
+        console.log('removing a note!')
+    }
+})
+// create list command
+yargs.command({
+    command: 'list',
+    describe: 'list a note',
+    handler: function () {
+        console.log('listing a note!')
+    }
+})
+// create read command
+yargs.command({
+    command: 'read',
+    describe: 'read a note',
+    handler: function () {
+        console.log('reading a note!')
+    }
+})
+
+
+console.log(yargs.argv)
+// console.log(process.argv)
