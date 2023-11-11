@@ -8,4 +8,6 @@ const bookJSON = JSON.stringify(book)
 console.log(bookJSON)
 // JSON Parse to take JSON data in and convert it to an object
 const parsedData = JSON.parse(bookJSON)
+console.log(parsedData)
+
 console.log(parsedData.author)
